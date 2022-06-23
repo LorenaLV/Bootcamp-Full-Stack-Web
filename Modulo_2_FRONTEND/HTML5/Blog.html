@@ -4,6 +4,8 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="robots" content="noIndex">
+        <meta name="robots" content="Index"> <!--comportamiento por defecto-->
         <title>Document</title>
     </head>
     <header>
@@ -26,7 +28,7 @@
             <li><a href="">Categoria 3</a></li>
         </ul>
         <hr>
-        <article>
+        <article id="parr1">
             <h3>Publicación uno</h3>
             <blockquote>Publicado el 26 de Octubre</blockquote>
             <p>Lorem Ipsum is simply dummy text of the printing and 
@@ -42,7 +44,7 @@
             <a href="post.html">Leer mas</a>
         </article>
         <hr>
-        <article>
+        <article id="parr2">
             <h3>Publicación dos</h3>
             <blockquote>Publicado el 2 de Diciembre</blockquote>
             <p>Lorem Ipsum is simply dummy text of the printing and 
@@ -58,7 +60,7 @@
             <a href="post.html">Leer mas</a>
         </article>
         <hr>
-        <article>
+        <article id="parr3">
             <h3>Publicación tres</h3>
             <blockquote>Publicado el 18 de Mayo</blockquote>
             <p>Lorem Ipsum is simply dummy text of the printing and 
@@ -76,14 +78,14 @@
         <hr>
         <h3>Últimas entradas</h3>
         <ul>
-            <li><a href="">Publicación 1</a></li>
-            <li><a href="">Publicación 2</a></li>
-            <li><a href="">Publicación 3</a></li>
+            <li><a href="#parr1">Publicación 1</a></li>
+            <li><a href="#parr2">Publicación 2</a></li>
+            <li><a href="#parr3">Publicación 3</a></li>
         </ul>
     </section>
     <footer>
         <br>
         <p>Copyright &copy 2022, Mi web </p>
     </footer>
-
+    <div style="height:500px;"></div>
 </html>
