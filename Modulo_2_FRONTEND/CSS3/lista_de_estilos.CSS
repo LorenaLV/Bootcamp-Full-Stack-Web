@@ -27,9 +27,9 @@ body{
 /*Tipos de display: none, inline, block, inline-block*/
 /*Vamos a seleccionar: selector por atributo [attr=value], 
 ^ esta expresión significa que empieza por..*/
-[class^="box"] {
+/*[class^="box"] {
     background-color: steelblue;
-}
+}*/
 
 .box-0 {
     display: none;
@@ -191,4 +191,57 @@ body{
     width: 33%;
     float: right;
   
+}
+
+.pos-float-child-2-1{
+    background-color: #ddd;
+    height: 25px;
+    width: 20%;
+    float: right;
+}
+.pos-float-child-2-2{
+    background-color: red;
+    height: 25px;
+    width: 20%;
+}
+/*Overflow - Gestión del desbordamiento del contenido*/
+[class^="overflow-parent"]{
+    width: 200px;
+    height: 100px;
+    border: 3px dashed black;
+    margin-bottom: 150px;
+}
+
+
+.overflow-parent-1{
+    overflow: hidden;/*Esconde el parrafo y ya no se desborda*/
+}
+.overflow-parent-2{
+    overflow: visible;/*se va a ver fuera del contenedor*/
+}
+.overflow-parent-3{
+    overflow: scroll;/*Si quieres que no se vea entero el contenido*/
+}
+/*Tamaño de cajas (Box-sizing)*/
+.box-sizing-parent{
+    width: 200px;
+    height: 200px;
+    border: 10px solid goldenrod;
+}
+.box-sizing-child{
+    width: 100%;/*el contenido te lo respeta pero los bordes no y se sobre sale*/
+    height: 50px;
+    background-color: gray;
+    border: 10px solid darkolivegreen;
+    box-sizing: content-box;
+    /*Es el valor por defecto,
+    el tamaño que nosotros especifiquemos (width:200%) no va a tener
+    encuenta el borde hacia afuera, solo el contenido (el
+    color gris), su ancho real va a ser más que el 100% del padre*/
+}
+.border-box{
+    margin-top: 10px;
+    box-sizing: border-box;
+    /*si se quiere contar los bordes también, se tiene
+    que poner la propiedad box-sizing: border-box;*/
 }
