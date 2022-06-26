@@ -1,0 +1,91 @@
+*{
+    box-sizing: border-box;
+    /*El tamaño que yo especifique dentro de un elemento
+    incluiria tanto border como padding*/
+}
+.container{
+    border: 2px solid gray;
+    padding: 10px;
+}
+
+/*ESTILOS PARA EL HEADER*/
+.header_1{
+    position: relative;
+}
+header{
+    margin-bottom: 10px;
+}
+.header_1 form{
+    position: absolute;
+    right:10px;
+    /*Con 0px se come el padding del div por
+    ello es mejor poner lo mismo que el padding*/
+    top: 50%;
+    margin-top: -11px;
+    /*se mira el form entero lo que mide de altura en este caso
+    22 y se divide por la mitad, esto es para posicionarlo
+    verticalmente*/
+}
+
+/*ESTILOS PARA EL ASIDE*/
+.aside_1{
+    width: 25%;
+    float: left;
+}
+
+.news > a, .news span {/* con el simbolo > selecciona los hijos directos a*/
+    display: block;
+}
+
+/*ESTILOS A SECTION*/
+section{
+    height: 690px;
+    width: 74%;
+    float: right;
+}
+
+.main-content{
+    width: 70%;
+    float: left;
+    /*Aqui los parrafos que hay adentro se adaptan a la imagen
+    que ees flotante */
+}
+
+.aside-content{
+    width: 29%;
+    float: right;
+}
+
+img{
+    height: 100px;
+    width: 100px;
+    float: left;
+    margin-right: 10px;
+    
+}
+.clear{
+    clear: both;
+    /*Se a creado un techo para que a partir de ese div
+    se limpie y cree el siguiente elemento debajo porque ese 
+    div no es flotante */
+}
+footer{
+    margin-top: 20px;
+    /*Al tener margin top se separa el footer del section*/
+    position: relative;
+}
+
+footer span{
+    right: 10px;
+    position: absolute;
+    top: 50%;
+    margin-top: -9.5px;
+    /*Este calculo es para centrar el elemento verticalmente 
+    con respecto al padre que en este caso es footer
+    lo que hacemos es: cogemos el alto total del elemento
+    span y lo dividimos entre 2, luego ponemos un top al 50%
+    del padre para centrarlo y luego le damos margin para que
+    cuente su centro entero, no desde la esquina y será el numero
+    en negativo. Esto sirve para la posición absoluta.*/
+}
+
