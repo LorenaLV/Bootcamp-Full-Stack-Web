@@ -89,18 +89,19 @@ body{
     /*Posición relativa desde donde se encuentra el elemento*/
 }
 
-/*Posición Absoluta*/
+/*POSICION ABSOLUTA*/
 .pos-absolute-parent {
     height: 300px;
     border: 15px solid tomato;
-    position: relative;/*Para que el hijo se mueva dentro del padre*/ 
+    position: relative;
+    /*Para que el hijo se mueva dentro del padre*/
 }
 .pos-absolute-child {
     height: 50px;
     width: 50px;
     background-color: #333;
-
-    position: absolute; /*posición  dependiente al 
+    position: absolute; 
+    /*posición  dependiente al 
     documento. Si queremos que sea relativa al padre, 
     en el mismo padre se pone position: relative; y 
     nunca saldra del padre*/
@@ -113,7 +114,8 @@ body{
 /*Posición fija/fixed*/
 .pos-fixed {
     background-color: #333;
-    padding: 20px 30px;/*se aplica a todo, porque es paddign solo*/
+    padding: 20px 30px;
+    /*se aplica a todo, porque es paddign solo*/
 
     position: fixed;
     bottom: 30px;
@@ -130,8 +132,8 @@ body{
 .pos-sticky {
     background-color: steelblue;
     padding: 15px 25px;
-
-    position: sticky;/*poniendo la posición sticky
+    position: sticky;
+    /*poniendo la posición sticky
     y la posción donde queremos que este, se podrá fija
     cuando llegue a la posicón*/
     top: 0;
@@ -190,7 +192,7 @@ body{
     height: 50px;
     width: 33%;
     float: right;
-  
+      
 }
 
 .pos-float-child-2-1{
@@ -264,4 +266,78 @@ body{
     .responsive{
         width: 100%;
     }
+}
+
+/*FLEXBOX*/
+.flex-parent{
+    display: flex;
+    /*Ya sería una propiedad flex, por defecto te lo pone como
+    rows, le da igual que sea un elemento inline, block*/
+    flex-direction: row;/*Esto es por defecto*/
+    /*flex-wrap: wrap;*/
+
+    /*flex-wrap:wrap, controla si se crea una nueva linea 
+    si no hay espacio o si no se hace. Con flex-wrap:nonwrap
+    no creará una linea nueva*/
+    justify-content: center;
+    justify-content: space-around;/*Es darle aire a todos los lados*/
+    justify-content: space-between;/*Espacios en el medio*/
+    justify-content: space-evenly;/*Es identico y equitativo todos los espacios*/
+
+    align-items: center;
+    align-items: flex-start;
+    align-items: flex-end;
+    align-items: stretch;
+    /*El valor por defecto si no pones align-items es 
+    stretch y la propiedad align-items es para mover
+    verticalmente*/
+
+    height: 250px;
+    border: 2px solid #333;
+
+
+}
+[class^="flex-child"]{
+    width: 250px;
+    display: flex;
+    /*Lo ponemos a flex a los hijos para centrar el contenido*/
+    justify-content: center;
+    /*justify-content se centra el hijo con respecto al eje
+    horizontal, es decir, estamos en la rows y me lo va a alinear
+    de forma horizontal a donde le diga, en este caso es, center*/
+    align-items: center;
+    /*align-items sería para el contrario, para el eje vertical y en este caso
+    sería para center*/
+}
+.flex-parent > div:nth-child(odd){
+    background-color: #ddd;
+    color: #333;
+}
+.flex-parent > div:nth-child(even){
+    background-color: #333;
+    color: #ddd;
+}
+.flex-child-1{
+    flex-grow: 0;
+    flex-shrink: 2;
+    /*Es la velocidad a la que encoge y no es compatible
+    con flex-wrap, porque si esa propiedad esta puesta,
+    encogerá y se irá a una nueva linea y no hace caso al 
+    decrecimiento */
+}
+.flex-child-2{
+    flex-grow: 1;
+    /*flex-grow: 1; esta propiedad por defecto es 0 y no crece
+    tomara todo el tamaño disponible , asi que, la propiedad
+    justify-content: space-around; no tendrá los espacios, 
+    se lo comerá*/
+    flex-shrink: 3;
+    align-self: center;
+    /*align-self: center; esta propiedad, sobreescribe lo que 
+    diga el padre, te lo alinea de forma verticalmente*/
+}
+.flex-child-3{
+    flex-grow: 2;
+    flex-shrink: 2;
+    
 }

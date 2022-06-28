@@ -34,6 +34,10 @@ a{
     padding-top: 80px;
     padding-bottom: 80px;
     background-position: center;
+    background-size: cover;
+    /*background-size: cover con esta propiedad cubre el 100%
+    del contenido con la imagen, es decir, amplia la imagen*/
+
 }
 .image-header h1{
     margin: 0;
@@ -44,7 +48,8 @@ a{
     color: black;
     width: 65%;
     margin: 20px;
-    float: left;   
+    float: left;
+    box-sizing: border-box;   
 }
 .container-1 h3{
     margin: 0;
@@ -56,6 +61,8 @@ a{
     width: 25%;
     margin: 20px;
     float: right;
+    box-sizing: border-box;  
+
 }
 .container-2 p{
     font-size: 1.2em;
@@ -67,10 +74,37 @@ a{
     margin: 0;
 }
 .clear{
-    clear: both;
+    overflow: hidden;
+    /*Esta propiedad es para que el padre, en este caso, aside
+    se adapte a cualquiera de sus hijos ya sea flotante o no
+    asi podemos darle la propiedad overflow: hiddden;
+    pa que asi el footer no colapse*/
 }
 footer{
     background-color: #333;
-    margin-top: 20px;
+    padding: 10px;   
+}
+
+footer p{
+    text-align: center;
+}
+
+@media only screen and (max-width: 768px) { 
+    .container-1 , .container-2 {
+        float: none;
+        width: 100%;
+    } 
     
+    aside{
+        margin-bottom: 30px;
+    }
+    .image-header h1{
+        margin: 20px 5px;
+        line-height: 1.3em;
+        font-size: 2em;
+    }
+    a{
+        padding-bottom: 8px;
+        display: block;
+    }
 }
