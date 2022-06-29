@@ -341,3 +341,32 @@ body{
     flex-shrink: 2;
     
 }
+
+/*CSS3 GRID*/
+[class^="grid-child"]{
+    background-color: coral;
+}
+
+.grid-parent{
+    display: grid;/*Esto es para activar el grid*/
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 1fr 2fr;
+    gap: 10px; 
+}
+@media only screen and (max-width: 920px){
+    .grid-parent{
+        grid-template-columns: 1fr 2fr;
+    }
+}
+@media only screen and (max-width: 780px){
+    .grid-parent{
+        grid-template-columns: 1fr;
+    }
+}
+
+/*CSS3 grid por líneas*/
+.grid-parent-2{
+    display: grid;
+   grid-template-columns: repeat(3, 1fr);
+   grid-template-rows: repeat(4, 1fr);
+}
