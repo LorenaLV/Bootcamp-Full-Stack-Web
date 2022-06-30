@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cheatsheet Javascript</title>
+        <style>
+            a{
+                font-size: 1.5em;
+                display: block;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Procesar Javascript</h1>
+        <a href="#" onclick="console.log('Hola desde un script inline')">Inline script</a>
+        <a href="#">Internal script</a>
+        <a href="#">External script</a>
+
+        <script>
+            /*Este es Internal script*/
+            function saludo(){
+                alert("Hola desde un internal script");
+                console.log("Has hecho click");
+            }
+            document.getElementsByTagName("a").item(1).addEventListener("click", saludo)
+            /*item(1) quiere decir que es la a (1)*/
+        </script>
+        <script src="js/main.js"></script>
+    </body>
+</html>
