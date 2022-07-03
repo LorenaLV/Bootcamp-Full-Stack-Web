@@ -85,5 +85,81 @@ console.clear();
 //---------------STRINGS--------------------------------
 str = "Hola futuro";
 console.log(str, str.length);
-console.log(str.indexOf("futuro")); /* IndexOf,va a buscar en str la 
+console.log(str.indexOf("futuro"), str.indexOf("cadena no presente")); /* IndexOf,va a buscar en str la 
 primera vez que aparezca el string que yo le estoy pasando y el indice*/
+console.log("La ultima ocurrencia de 'u' esta en el indice", str.lastIndexOf("u"));
+
+console.log(str.substring(1,3));
+
+console.log("Hola mundo".concat(". Adios mundo"));
+console.log("Hola mundo" + ". Adios mundo"); //Equivalente a concat
+str = str + ", Adios mundo";
+str += ", Adios mundo";
+
+console.log(str);
+console.log(str.replace("futuro" , "Mundo"));
+console.log(str.replaceAll("Mundo" , "futuro"));
+console.log(str.toLowerCase());
+console.log(str.toUpperCase());
+
+console.log(Object(String("Hola"))); //Aqui te imprime el prototype string
+
+console.log(`El dia de mi cumpleaños es ${day}.`);//String template, se define con las comillas dobladas
+console.log("El dia de mi cumpleaños es" , day, "." );
+
+console.clear();
+//PARSING/ casting (Cambiar el tipo de datos)
+let number = Number("1000s"); 
+//Lo parsea a numero, si le das otra cosa sale "NaN" (Not a number) no genera error
+console.log(number, typeof number);
+
+number = Number("1000"); 
+console.log(number, typeof number);
+
+number += "1000"; //Entiende que es una concatenación, no una suma
+console.log(number , typeof number);
+
+console.log("1" + 1, "1" - 1);//Peculariedad de JS
+
+
+console.clear();
+//----------------------OBJECTS---------------------------
+//Un objeto se crea con la llave
+let person = {
+    //Propiedades
+    name: "John", 
+    age: 30,
+    blonde: false,
+    walk: function () {
+        //como se hacia antes (Pre-ES6)
+        console.log("Hey, estoy saltando ahora mismo");
+    },
+    jump() {
+        //como se hace ahora (ES6)
+        console.log("Hey, estoy saltando");
+    }
+}
+
+//Acceso por punto / Dot notation
+console.log(person); //imprimir el objeto
+console.log(`Se llama  ${person.name} y tiene ${person.age} años`); 
+//Todo lo que haya dentro de `` se convierte a string
+
+person.name = "Jane"; //modificando la propiedad
+console.log(person);
+console.log(`Se llama  ${person.name} y tiene ${person.age} años`);
+
+//Acceso por corchete / Brackets notation
+let propertyName = "age"; 
+console.log(person[propertyName]);
+
+//Ampliación / Añadir propiedades a tu objeto
+person.children = ["Martha","Peter"];
+console.log(person);
+console.log(person.children[0], person.children[1]);
+
+//Llamar a los metodos de los objetos / acciones de los objetos
+person.jump();
+person.walk();
+
+console.log(typeof {}, typeof [], typeof "");
