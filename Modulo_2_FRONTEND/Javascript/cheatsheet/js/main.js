@@ -163,3 +163,74 @@ person.jump();
 person.walk();
 
 console.log(typeof {}, typeof [], typeof "");
+
+//This 
+const person2 = {
+    name: "Thomas", 
+    talk(){
+        //Con this estas haciendo referencia al objeto entero
+        //Siempre que tengamos que hacer referencia al objeto en el que estamos
+        //ponemos this
+        console.log(`Me llamo ${this.name}`);
+        
+    }
+}
+
+console.clear();
+//---------------------ARRAYS---------------------------
+let selectedColors = ["red" , "blue"] //array de string
+console.log(selectedColors, selectedColors.length, typeof selectedColors);
+
+//Añadir elementos a la array, si no exite l crea
+selectedColors[2] = "green";
+console.log(selectedColors, selectedColors.length);
+
+//Añadir elementos nuevos al final del array
+selectedColors.push("violet", "white");
+console.log(selectedColors, selectedColors.length);
+
+//Con pop quita el ultimo elemento del array
+let removeItem = selectedColors.pop(); //POP te devuelve algo y lo puedes guardar el valor en una variable
+console.log(selectedColors, selectedColors.length);
+
+//Añadir elementos nuevos al principio del array
+selectedColors.unshift("white");
+console.log(selectedColors, selectedColors.length);
+
+//Con shift quita el primer elemento del array
+selectedColors.shift();
+console.log(selectedColors, selectedColors.length);
+
+//Ordena alfabeticamente
+selectedColors.sort();
+console.log(selectedColors, selectedColors.length);
+
+//Busca el elemento que yo le diga () y me da el indice de ese elemento
+console.log(selectedColors[selectedColors.indexOf("red") +1]);
+
+//indexOf te dice la posicion del elemento (indice)
+console.log("El rojo esta en el indice", selectedColors.indexOf("red"));
+
+//Indice de inicio y indice de fin y te devuelve los elementos del medio
+console.log(selectedColors.slice(1,3));
+
+//Borra desde el punto en el que le digamos y llegue hasta el final
+//El 1 es donde empieza a querer borrar y el 3 es la cantidad que quieres borrar
+console.log(selectedColors.splice(1,1));
+console.log("Los elementos borrados son:", selectedColors.splice(1,2));
+console.log("El array final se ha quedado así:", selectedColors);
+
+console.clear();
+/*EJERCICIO: Crear un objeto niño que tenga las propiedades nombre, altura, genero
+y amigos. Amigos estará inicialmente vacío y añadiremos
+posteriormente 3 elementos con los nombres. Despues, añadiremos una
+extra al inicio.
+*/
+let ninio = {
+    nombre:"Javier",
+    altura: 1.10,
+    genero:"hombre",
+    amigos:[],
+}
+
+console.log(ninio);
