@@ -3,8 +3,8 @@ function saludo(){
     alert("Hola desde un external script");
     console.log("Has hecho click en el externo");
 }
-document.getElementsByTagName("a").item(2).addEventListener("click", saludo);
-
+/*document.getElementsByTagName("a").item(2).addEventListener("click", saludo);
+*/
 //---------------DEPURACION / LOGGING-----------------------
 //alert("Mensaje");
 //console.log("Mensaje"); para saber que esta pasando en un momento determinado.
@@ -98,7 +98,7 @@ str += ", Adios mundo";
 
 console.log(str);
 console.log(str.replace("futuro" , "Mundo"));
-console.log(str.replaceAll("Mundo" , "futuro"));
+/*console.log(str.replaceAll("Mundo" , "futuro"));*/
 console.log(str.toLowerCase());
 console.log(str.toUpperCase());
 
@@ -137,8 +137,13 @@ let person = {
     jump() {
         //como se hace ahora (ES6)
         console.log("Hey, estoy saltando");
+    },
+    //Para utilizar el operador ternario, hemos utilizado la funcion presentarse
+    presentarse() {
+        console.log(`Me llamo ${this.name}, tengo ${this.age} años y ${this.blonde ? 'soy rubio' : 'soy moreno.'} `);
     }
 }
+person.presentarse();
 
 //Acceso por punto / Dot notation
 console.log(person); //imprimir el objeto
@@ -181,7 +186,7 @@ console.clear();
 let selectedColors = ["red" , "blue"] //array de string
 console.log(selectedColors, selectedColors.length, typeof selectedColors);
 
-//Añadir elementos a la array, si no exite l crea
+//Añadir elementos a la array, si no exite lo crea
 selectedColors[2] = "green";
 console.log(selectedColors, selectedColors.length);
 
@@ -231,6 +236,120 @@ let ninio = {
     altura: 1.10,
     genero:"hombre",
     amigos:[],
+    loseFriends() {
+        this.amigos.pop();
+    }
 }
 
+ninio.amigos.push("Maria", "Pepe","Jesus");
+//Con push si anteriormente hay un elemento no se lo carga
 console.log(ninio);
+
+ninio.amigos.unshift("Thomas");
+console.log(ninio);
+
+ninio.loseFriends();
+console.log(ninio);
+
+console.clear();
+//---------------------CONDICIONALES------------------------
+//IF-ELSE
+const randomNumber = 9;
+const guessedNumber = "5";
+
+if (typeof randomNumber !== typeof guessedNumber){
+    console.log("Hey, tienes que introducir el mismo tipo");
+}
+
+// == es igual en el valor, === es igual en valor y en el tipo
+if (randomNumber === guessedNumber) {   
+    console.log("Has acertado el numero");
+} else if (randomNumber > guessedNumber) {
+    console.log("El numero secreto es mayor");
+} else {
+    console.log("El numero secreto es menor");
+} 
+
+//Ternary operator
+let variable = 12 < 10 ? "El primero es menor" : "es mayor";
+console.log(variable);
+//es un if else corto, si 12 es menor que 10 entonces haz eso sino, es mayor
+
+//SWITCH
+let option = 3;
+switch (option) {
+    case 1:
+        //Bloque de código para valor 1
+        console.log("Option vale 1");
+        break;
+    case 2:
+        //Bloque de código para valor 2
+        console.log("Option vale 2");
+        break;
+    case 3:
+        //Bloque de código para valor 3
+        console.log("Option vale 3");
+        break;
+    default: //De otro modo
+        console.log("otra opción");
+        break;       
+}
+
+
+console.clear();
+//---------------------FUNCIONES------------------------
+//NOMBRADAS:
+function greet (name, lastname) {
+    console.log(`Hola ${name} ${lastname}, ¿Que tal?`);
+}
+greet();
+greet("Marcos", "Aure");
+
+//Ejercicio: que devuelva el cuadrado de un número que recibe por parámetro
+function square (num1) {
+    let square = num1 * num1;
+    return square;
+}
+
+console.log(square(7));
+
+/*Las funciones de primera clase, significa que se pueden 
+guardar en un variables, se puede introducir por parámetro a
+otra función*/
+
+//ANONIMA: (JS permite hacer funciones sin nombre)
+let numbersArray = [5 , 51 , 1, 15 ,2];
+console.log(numbersArray);
+numbersArray.sort();//Me lo ordena según ASCII
+console.log(numbersArray);
+
+function orderNumbers (a, b) {
+    if (a < b){
+        return -1;
+    } else if (a === b) {
+        return 0;
+    } else {
+        return 1;
+    }
+}
+//numbersArray.sort(orderNumbers);
+
+//No se puede llamar a la función porque no tiene nombre
+numbersArray.sort(function (a, b){return a - b});
+
+console.log(typeof orderNumbers, typeof function (a, b){return a - b});
+
+console.log(numbersArray);
+
+console.clear();
+//ARROW FUNCTIONS:
+/*
+    --Son anónimas.
+    --Entre parentesis se pone todos los argumentos de esa función.
+    --A la derecha es lo que devuelve la función, sin poner return.
+*/
+const perimeteOfSquare = (side) => side *4;
+console.log(perimeteOfSquare(5));
+
+console.log(typeof function() {});
+console.log(typeof (() => {}));
