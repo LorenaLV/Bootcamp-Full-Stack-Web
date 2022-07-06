@@ -348,8 +348,146 @@ console.clear();
     --Entre parentesis se pone todos los argumentos de esa función.
     --A la derecha es lo que devuelve la función, sin poner return.
 */
-const perimeteOfSquare = (side) => side *4;
+//Paso a paso:
+let perimeteOfSquare = function (side) {
+    return side *4; //función anónima
+} 
+perimeteOfSquare = function (side) {return side *4;} //una única línea. 
+perimeteOfSquare = (side) => {return side *4;} //sustituyo función por flecha. 
+perimeteOfSquare = (side) => side *4; //si solo quiero devolver algo quito llaves y return
+perimeteOfSquare = side => side *4;//Si solo tiene un param, podemos quitar paréntesis.
 console.log(perimeteOfSquare(5));
 
-console.log(typeof function() {});
-console.log(typeof (() => {}));
+//console.log(typeof function() {});
+//console.log(typeof (() => {}));
+
+//Como transformar una func anónima en func flecha
+/*numbersArray.sort(function (a, b){return a - b});
+let arrows = (a, b) => a - b;
+numbersArray.sort(arrows);*/
+
+console.clear();
+//---------------------BUCLES------------------------
+// BUCLE FOR:
+for (let i = 0; i <= 10; i++ ){
+    console.log(`Indice: ${i}`);
+    //i muere al acabar el bucle, es un scope de bloque
+}
+
+// EJERCICIO: Definir y rellenar un array con el indice i
+let numArray = [];
+
+// for (let i = 0; i <= 10; i++ ){
+//     numArray[i] = i;
+//     console.log(`El array: numArray[${i}] = ${i}`);
+// }
+// console.log(numArray);
+
+for (let i = 0; i <= 10; i++ ){
+  numArray.push(i);
+}
+console.log(numArray);
+
+// BUCLE WHILE:
+let contador = 0;
+while (contador <= 10){
+    console.log(contador);
+    contador ++;
+}
+
+// BUCLE FOR EACH:
+console.log(numbersArray);
+numbersArray.forEach(function (value, index){
+    console.log(`Indice ${index}: ${value}`);
+    /*Mi funcion que he creado es llamada para cada uno 
+    de los elementos con los argumentos del propio elemento
+    y su indice
+    value: siempre va a ser el elemento
+    index: siempre va a ser el indice tu array
+    array: siempre va ser el array en sí*/
+});
+
+numbersArray.forEach((item, index) => console.log(`Indice ${index}: ${item}`));
+
+let otherArray = [];
+numbersArray.forEach(item => otherArray.push(item));
+console.log(otherArray);
+
+// FOR OF:
+for (let item of numbersArray){
+    //OF se pone para cualquier tipo de iterable ej:"A B C"
+    console.log(item);
+}
+
+// CONTINUE:
+for (let i = 0; i < 5; i++){
+    if (i === 3 || i === 2){
+        continue; //salta a la siguiente iteración
+    }
+   console.log("Using continue", i);
+}
+
+// BREAK:
+let i = 0;
+let k;
+mainloop: while (true) {
+    console.log("Outer loop" , i);
+    i++;
+    k = 1;
+    while (true) {
+        console.log("Inner loop" , k);
+        k++;
+        if (i === 5 && k === 5){
+            break mainloop; 
+            // Con break sin especificar etiqueta, rompe el bucle en el que esté   
+        }else if (k === 5){
+            break;
+        }
+    }
+    /*Podemos poner etiquetas a los bucles para saber el que
+    queremos romper */
+}
+
+console.clear();
+//---------------DOM (Document Object Model)------------------
+//Basic
+console.log(document);
+console.log(document.domain);
+document.title += " DOM";
+
+//Selectors
+const family = document.getElementsByTagName("div");
+console.log(family);
+
+const grandParent = document.getElementById("grandparent");
+console.log(grandParent);
+
+const parents = document.getElementsByClassName("parent"); //HTMLCollection
+const parent1 = parents[0];
+const parent2 = parents[1];
+console.log(parent1, parent2);
+
+const children = document.getElementsByClassName("child");
+console.log(children);
+
+let element = document.querySelector("div#grandparent>.parent>div.child#child-4");
+console.log(element);
+
+let element1 = document.querySelectorAll(".grandparent div");
+console.log(element1);
+
+parent1.style.backgroundColor = "#ddd";
+
+
+
+//Array.from(family).forEach(item => console.log(item));
+/*He parseado family para que me devuelva un array y 
+ya pueda utilizar foreach, para que, me imprima por ejemplo
+todos los div*/
+
+// for (let familyMember of family){
+//     console.log(familyMember);
+//     /*Con el of HTMCollection se puede iterar, no hace falta
+//     que sea un array, ya que, no es un array y es otra cosa que se
+//     puede iterar, saldrá lo mismo */
+// }
