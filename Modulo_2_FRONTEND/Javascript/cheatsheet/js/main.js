@@ -476,7 +476,44 @@ console.log(element);
 let element1 = document.querySelectorAll(".grandparent div");
 console.log(element1);
 
-parent1.style.backgroundColor = "#ddd";
+//parent1.style.backgroundColor = "#ddd";
+//para cambiar la propiedad hay que ponerla con las reglas camel case
+const changeBackground = (element, color) => element.style.backgroundColor = color;
+changeBackground(children[0],"#333");
+changeBackground(parent2, "red");
+changeBackground(parent2.children[1], "blue");
+
+//Seleccionar el abuelo, y que, simplemente tengamos los hijos seleccionados
+changeBackground(children[0].parentNode.parentNode, "#ddd");
+
+/*Selecciona el hermano anterior*/
+changeBackground(parent1.children[1].previousElementSibling, "#ddd");
+//grandParent.children[1].previousElementSibling.lastElementChild
+
+//Properties:
+//children[0].innerHTML = "child 1 v2";
+console.log(children[0].innerHTML); //innerHTML es el html con todo, sus etiquetas y su contenido
+console.log(children[0].textContent);//textContent obbia las etiquetas, solo coge texto
+
+console.clear();
+/*classlist te da una lista con todas las clases*/
+console.log("CLaslist: ", parent1.classList);
+
+/*Remove: te quita la clase que tenga el parent1*/
+parent1.classList.remove("bg-dark");
+console.log("CLaslist: ", parent1.classList);
+/*Add: te añade la clase que pongas al parent1*/
+parent1.classList.add("bg-red");
+console.log("CLaslist: ", parent1.classList);
+/*toggle: si no tiene clase te lo añade y si tiene clase te lo quita */
+parent1.classList.toggle("bg-red");
+
+/*Se puede añadir atributos a cualquier elemento y a cualquier
+atributo de html, si exite, no te lo crea y si no existe te lo crea*/
+parent1.setAttribute("name", "nombre-del-parent-1");
+
+
+
 
 
 
