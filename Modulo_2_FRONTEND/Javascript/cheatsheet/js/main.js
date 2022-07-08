@@ -511,8 +511,46 @@ parent1.classList.toggle("bg-red");
 /*Se puede añadir atributos a cualquier elemento y a cualquier
 atributo de html, si exite, no te lo crea y si no existe te lo crea*/
 parent1.setAttribute("name", "nombre-del-parent-1");
+//parent1.id = "name"; se accede a todos los atributos de html
 
+console.clear();
+// Create / Remove elements
+let myDiv = document.createElement("div");//se crea elemento
+myDiv.id = "new div";
+myDiv.classList.add("child");
+myDiv.textContent = "child 2.5";
 
+let myDiv2 = myDiv;
+
+parent2.appendChild(myDiv2);// MISMO nodo con dos nombre diferentes
+parent1.appendChild(myDiv);
+
+myDiv2 = myDiv.cloneNode(true);/*Creamos un nuevo nodo a partir del original
+Si le pasamos true, hacemos una copia profunda y copia la etiqueta
+div con todos sus hijos, si es false solo copia el padre*/
+parent2.appendChild(myDiv2);
+myDiv2.textContent = "child 5";
+
+myDiv.remove();//Te elimina el nodo completo
+
+let myDiv3 = myDiv.cloneNode(true);
+parent2.before(myDiv3);
+parent2.after(myDiv.cloneNode(true)); //Te lo clona y crea despues
+
+/*EJERCICIO: Crear una funcion que me devuelva un nodo nuevo y que reciba etiqueta e id*/
+function createNode (tag, id){
+    let mydiv4 = document.createElement(tag);
+    mydiv4.id = id;
+    return mydiv4;
+}
+
+let nuevoNodo = createNode("div", "newNodo4");
+parent1.appendChild(nuevoNodo);
+
+let link = createNode("a", "newLink");
+link.textContent = "Enlace new";
+link.setAttribute("href", "https://www.google.com/");
+grandParent.appendChild(link);
 
 
 
