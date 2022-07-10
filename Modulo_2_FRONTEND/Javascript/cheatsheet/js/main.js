@@ -31,6 +31,8 @@ console.clear();
 //Inicialización
 let day;
 day = 5;
+/*Const, en js, las constantes no nos dejan reinicializar pero 
+si pueden mutar, en js no existe los datos que no pueden cambiar*/
 
 let monthName = "Octubre"; //Definimos e inicializamos a la vez
 

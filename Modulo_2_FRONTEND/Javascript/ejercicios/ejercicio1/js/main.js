@@ -22,3 +22,14 @@ de HTML.
 /*APARTADO 3: Partimos de un HTML con una lista de 3 URLs 
 (texto) de imágenes y un element img. Al hacer click en
 cada URL, cambiará la imagen a la que contenga dicha URL*/
+
+
+/*APARTADO 7: Partiendo de una lista ul, crear 10 li con un texto 
+indicando el número del elemento (“Elemento X”)usando un 
+bucle for */
+let ul = document.querySelector(".liElementos");
+for (let i = 1; i<= 10; i++) {
+    let liTexto = document.createElement("li");
+    liTexto.textContent = `Elemento ${i}`;
+    ul.appendChild(liTexto);
+}
