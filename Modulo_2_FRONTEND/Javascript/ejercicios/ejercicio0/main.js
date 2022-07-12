@@ -187,7 +187,16 @@ function stringVacio (stringVoid) {
         return "Este string esta vacio";
     }else {
         return "No esta vacio";
-    }
+    } //return stringVoid ? false: true;
+    /*
+    se pone la variable sin hacer ninguna validación
+    stringVoid es de tipo string, se puede evaluar dentro
+    de condiciones (valores falsy 0, "" [] {} NaN)
+    if (stringVoid){
+        return true
+    }else { 
+        return false
+    } */
 }
 console.log(stringVacio(" "));
 console.log(stringVacio(""));
@@ -207,3 +216,45 @@ while (i <= stringArray.length -1) {
     i ++;
 }
 //for
+for (i = 0; i <= stringArray.length -1; i++) {
+    console.log(stringArray[i]);
+}
+//for of
+for (i of stringArray) {
+    console.log(i);
+}
+//forEach
+stringArray.forEach(function (index) {
+    console.log(stringArray[index]);
+})
+
+/*APARTADO 18: Crea una función que reciba un string y un 
+número N y devuelva el string original repetido N veces.
+*/
+//const repeatString = (repetirString, repetirN) => repetirString.repeat(repetirN);
+function repeatString(repetirString, repetirN) {
+    const repetirCadena = repetirString.repeat(repetirN);
+    return repetirCadena;
+}
+console.log(repeatString("hola mundo ",2));
+
+/*APARTADO 19: Crea una función que recibe un objeto con 
+dos campos, votos positivos y votos negativos y que devuelva
+la cuenta final. */
+function getVoteCount (obj) {
+    return obj.upVotes - obj.downVotes
+}
+//console.log(getVoteCount({upVotes:20, downVotes:10}));
+const votes = {upVotes:35, downVotes: 15};
+console.log(getVoteCount(votes));
+
+/*APARTADO 20: Crea una función que recibe un array de tipos 
+de datos mezclados y que devuelva otro array con el tipo
+de cada uno de los elementos. */
+function getTypes (typeArrays) {
+    for (i of typeArrays) {
+        return console.log(typeof typeArrays[i]);
+    }
+    
+}
+console.log(getTypes(["hola",3]));
