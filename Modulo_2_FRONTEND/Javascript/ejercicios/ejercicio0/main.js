@@ -252,9 +252,21 @@ console.log(getVoteCount(votes));
 de datos mezclados y que devuelva otro array con el tipo
 de cada uno de los elementos. */
 function getTypes (typeArrays) {
+    const otroArrays = [];
     for (i of typeArrays) {
-        return console.log(typeof typeArrays[i]);
+        otroArrays.push(typeof i);
     }
-    
+    return otroArrays;
 }
-console.log(getTypes(["hola",3]));
+console.log(getTypes(["hola",undefined,3, {}]));
+
+/*APARTADO 21: Función que dado un array de números con formato 
+string devuelva un array con los números ya parseados */
+function getParsedNumbers(parsedArray) {
+    const arrayParsed = [];
+    for(i of parsedArray){
+        arrayParsed.push(Number(i));
+    }
+    return arrayParsed;
+}
+console.log(getParsedNumbers(["2.5","3","8"]));
