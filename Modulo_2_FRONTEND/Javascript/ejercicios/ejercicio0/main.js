@@ -270,3 +270,92 @@ function getParsedNumbers(parsedArray) {
     return arrayParsed;
 }
 console.log(getParsedNumbers(["2.5","3","8"]));
+
+/*APARTADO 22: Crea una función de flecha que devuelva “Positivo” 
+si el número que recibe por argumento es mayor o igual que 
+cero y “Negativo” en caso contrario. Usa el operador ternario.
+*/
+const fnFlecha = nu1 => nu1 >= 0 ? "Positivo" : "Negativo";
+console.log(fnFlecha(-3));
+
+/*APARTADO 23: Crea una función que dado un array cualquiera
+y un índice, borre el elemento guardado en ese índice */
+function borrarNum (arr1,indx) {
+    arr1.splice(indx,1);
+    return arr1;
+}
+console.log(borrarNum(["tres","ocho","palo","bola"],1));
+
+/*APARTADO 24: Usando la función del apartado anterior, 
+crea otra función que dado un array de números y un número a
+filtrar, devuelva un array borrando todos las apariciones de 
+dicho número. */
+function filterNumber(arr1,numberToFilter) {
+    arr1.forEach((element, index) => {
+        if(element === numberToFilter) {
+            borrarNum(arr1,index);
+        }
+    });
+}
+const arrayFiltered = [1,5,6,7,5];
+filterNumber(arrayFiltered, 5);
+console.log(arrayFiltered);
+
+/*APARTADO 25: Crea dos funciones que recibirán un objeto, la 
+primera devolverá un array con los nombres de todas sus
+propiedades. La segunda devolverá un array con los valores 
+de dichas propiedades. Investigar los métodos keys y values 
+del prototipo de Object.*/
+function objArrayValue(obj1) {
+    const resultado = Object.values(obj1);
+    return resultado;
+}
+console.log(objArrayValue({name:"hola", edad:3}));
+
+function objArrayKeys(obj1) {
+    const resultado = Object.keys(obj1);
+    return resultado;
+}
+console.log(objArrayKeys({name:"Maria", edad:10}));
+
+/*APARTADO 26: Crea una función que invierta un string.*/
+const stringReverse = cadena => {
+    let nuevaCadena = "";
+    for (let x = cadena.length - 1; x >= 0; x--) {
+        nuevaCadena += cadena[x]; //va a concatenar lo que tuviera nuevaCadena
+    }
+    return nuevaCadena;
+}
+console.log(stringReverse(".nóicamargorp ed sedrat sal ne éfac led érasuba oN"));
+
+/*APARTADO 27: Crea una función que compare strings sin 
+tener en cuenta las mayúsculas / minúsculas. */
+function compareString (strg1, strg2) {
+    if (strg1.toLowerCase() === strg2.toLowerCase()){
+        return true;
+    } else {
+        return false;
+    }
+} 
+console.log(compareString("HOLOOA", "HOLA"));
+
+/*APARTADO 28: Crea una función que convierta en mayúscula 
+sólo la primera letra de cada palabra de un string dado. El
+apartado 11 será de ayuda. Investigar cómo unir un array de 
+strings en un único string. */
+function capitalize(str) {
+    const convertir = str.split(" ");
+    for(let i = 0; i <= convertir.length-1; i++){
+        const word = convertir[i];
+        const initial = word[0];
+        convertir[i] = initial.toUpperCase() + word.substring(1);
+    }
+    return convertir.join(" ");
+}
+console.log(capitalize("hola mundo"));
+
+/*APARTADO 29: Crea una función en una única línea que reciba 
+un valor lógico y devuelva el opuesto. */
+const logicoContrario = boolean => !boolean;// me va a devolver lo contrario
+console.log(logicoContrario(true));
+console.log(logicoContrario(false));
