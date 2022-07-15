@@ -555,6 +555,56 @@ link.setAttribute("href", "https://www.google.com/");
 grandParent.appendChild(link);
 
 //--------------------------EVENTOS------------------------
+const colorButton = document.getElementsByTagName("button")[0];
+colorButton.addEventListener("click", function(event){
+    console.log(event.target);
+    // con target podemos saber que elemento ha disparado el evento
+    console.log(event.target.tagName);
+
+    if(event.ctrlKey){
+        document.body.classList.toggle("bg-red");
+    }
+    console.log(`X: ${event.clientX} | Y: ${event.clientY}`);
+    console.log(`Alt: ${event.altKey}.  Shift: ${event.shiftKey}. Ctrl: ${event.ctrlKey}`);
+});
+
+const emailInput = document.querySelector("#emailInput");
+//Aqui no hace falta [0] porque es solo un selector y te devuelve un unico elemento
+
+emailInput.addEventListener("focus", inputListener);
+emailInput.addEventListener("blur", inputListener);
+function inputListener(e) {
+   
+    console.log("Tipo de evento:", e.type); 
+    
+    
+    // if(e.type === "focus"){
+    //     e.target.classList.add("bg-red");
+
+    // } else if (e.type === "blur") {
+    //     e.target.classList.remove("bg-red");
+    // }
+}
+
+const changeTitle = e => {
+    document.querySelectorAll("h1")[2].textContent = emailInput.value;
+    //propiedad value: va a ser el valor de lo que tiene el input
+}
+
+emailInput.addEventListener("keydown", inputListener);
+emailInput.addEventListener("keyup", changeTitle);
+
+const container = document.getElementById("container");
+
+container.addEventListener("mouseover", inputListener);
+container.addEventListener("mouseout", inputListener);
+
+function coords (e) {
+    const h1 = document.querySelectorAll("h1")[3];
+    h1.textContent = `X: ${e.clientX} | Y: ${e.clientY}`;
+}
+document.body.addEventListener("mousemove", coords);
+
 
 
 

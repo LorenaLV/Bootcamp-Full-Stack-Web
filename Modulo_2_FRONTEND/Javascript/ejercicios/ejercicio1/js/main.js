@@ -17,12 +17,24 @@ elementParent.appendChild(elementParrafo2);
 /*APARTADO 2: Al pulsar un botón, cambiar el color del fondo del cuerpo 
 de HTML.
  */
-
+const boton = document.getElementsByTagName("button")[0];
+boton.addEventListener("click", function (event){
+    document.body.classList.toggle("body");
+})
 
 /*APARTADO 3: Partimos de un HTML con una lista de 3 URLs 
 (texto) de imágenes y un element img. Al hacer click en
 cada URL, cambiará la imagen a la que contenga dicha URL*/
+const listaImagenes = document.querySelectorAll("li>span")[0];
+console.log(listaImagenes);
+const imagenes = document.querySelector("#src");
+console.log(imagenes);
+function aparecerImagen(listaImagenes) {
+    console.log(imagenes.id = listaImagenes.textContent);
 
+    
+}
+listaImagenes.addEventListener("click",aparecerImagen);
 
 /*APARTADO 7: Partiendo de una lista ul, crear 10 li con un texto 
 indicando el número del elemento (“Elemento X”)usando un 
