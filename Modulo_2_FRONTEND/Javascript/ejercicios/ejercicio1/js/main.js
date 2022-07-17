@@ -17,24 +17,35 @@ elementParent.appendChild(elementParrafo2);
 /*APARTADO 2: Al pulsar un botón, cambiar el color del fondo del cuerpo 
 de HTML.
  */
+//button.addEventListener("click", () => document.body.style.backgroundColor = "red"); ALTERNATIVO
 const boton = document.getElementsByTagName("button")[0];
-boton.addEventListener("click", function (event){
+boton.addEventListener("click", function (){
     document.body.classList.toggle("body");
 })
 
 /*APARTADO 3: Partimos de un HTML con una lista de 3 URLs 
 (texto) de imágenes y un element img. Al hacer click en
 cada URL, cambiará la imagen a la que contenga dicha URL*/
-const listaImagenes = document.querySelectorAll("li>span")[0];
-console.log(listaImagenes);
-const imagenes = document.querySelector("#src");
-console.log(imagenes);
-function aparecerImagen(listaImagenes) {
-    console.log(imagenes.id = listaImagenes.textContent);
+const listItems = document.getElementsByTagName("li");
+console.log(listItems);
+const image = document.querySelector("img");
 
-    
-}
-listaImagenes.addEventListener("click",aparecerImagen);
+const changeImage = (e) => image.src = e.target.textContent;
+
+listItems[0].addEventListener("click", changeImage);
+listItems[1].addEventListener("click", changeImage);
+listItems[2].addEventListener("click", changeImage);
+
+/*APARTADO 4: Añadir un input de tipo texto y un botón. 
+Al pulsar el botón debe escribirse el texto del input en un 
+párrafo.4.2 Añadir un nuevo input pero esta vez cambiará el 
+texto con cada pulsación de tecla del usuario.*/
+
+
+
+
+
+
 
 /*APARTADO 7: Partiendo de una lista ul, crear 10 li con un texto 
 indicando el número del elemento (“Elemento X”)usando un 
