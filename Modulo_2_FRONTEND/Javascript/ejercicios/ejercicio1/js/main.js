@@ -151,4 +151,85 @@ un input donde poder añadir números y un botón. Al pulsar
 el botón, si el número ya existe en la lista, mostrar un 
 mensaje de error, si no existe, lo añadirá al principio.*/
 const listaNumeros = document.querySelector(".listNumber");
-console.log(listaNumeros);
+const btnLista = document.querySelector(".btnLista");
+const inputLista = document.getElementById("inputNumber");
+
+const numberList = [];
+function addList(e) {
+    let parse = parseInt(inputLista.value);
+    if(numberList.indexOf(parse) === -1){
+        numberList.unshift(parse);
+        newList = document.createElement("li");
+        newList.textContent = `${parse}`;
+        listaNumeros.appendChild(newList);
+    }else {
+        window.alert("Lo siento, este número ya existe");
+    }
+}
+
+btnLista.addEventListener("click", addList);
+
+/*ALTERNATIVA DEL APARTADO 11:
+const numberList = [1,7,9,2,5,6];
+function fillList (){
+    Vacia la lista y la rellena elemento a elemento
+    listaNumeros.innerHtml = ""; se carga todo lo que tenga anteriormente
+    for(let i = 0; i< numberList.length; i++){
+        newList = document.createElement("li");
+        newList.textContent = `${numberList[i]}`;
+        listaNumeros.appendChild(newList);
+    }
+}
+function addList(e) {
+    let parse = parseInt(inputLista.value);
+    if(numberList.indexOf(parse) === -1){
+        numberList.unshift(parse);
+        fillList();
+    }else {
+        window.alert("Lo siento, este número ya existe");
+    }
+}
+fillList();
+btnLista.addEventListener("click", addList);
+*/
+
+/*APARTADO 12: Crearemos una clase .btn en CSS que le de 
+ciertos estilos a un botón. Al hacer click en el botón haremos
+“toggle” o alternaremos esa clase, es decir, si está 
+presente la quitaremos y si no está, la añadiremos.*/
+const btnCSS = document.querySelector(".btnCss");
+btnCSS.addEventListener("click", () => btnCSS.classList.toggle("btn"));
+//documento.querySelector(".btnCss").onClick = (e) =>e.target.classList.toggle("btn");
+
+
+/*Ejercicio 1 (cont.)
+El código siguiente, añade un eventListener a cada botón 
+para que cuando se haga click en cada uno de ellos, le 
+cambie el backgroundColor.
+*/
+let buttons = document.getElementsByClassName("btn-red");//Devuelve un HTMLCollection
+
+buttons[0].addEventListener ("click", () =>{
+    buttons[0].style.backgroundColor = "red";
+});
+
+buttons[1].addEventListener ("click", () =>{
+    buttons[1].style.backgroundColor = "red";
+});
+
+buttons[2].addEventListener ("click", () =>{
+    buttons[2].style.backgroundColor = "red";
+});
+
+//Solucion 1:
+Array.from(buttons).forEach(button => button.onClick = e => e.target.style.backgroundColor = "red");
+/*
+Array.from(buttons).forEach(button => {
+    button.onClick = e => {
+        e.target.style.backgroundColor = "red");
+    }
+});
+*/
+
+//Solucion 2:
+buttons = document.querySelectorAll("btn-red"); //Devuelve un NodeList
