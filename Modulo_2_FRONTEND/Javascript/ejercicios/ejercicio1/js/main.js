@@ -226,10 +226,17 @@ Array.from(buttons).forEach(button => button.onClick = e => e.target.style.backg
 /*
 Array.from(buttons).forEach(button => {
     button.onClick = e => {
-        e.target.style.backgroundColor = "red");
+        e.target.style.backgroundColor = "red";
     }
 });
 */
 
 //Solucion 2:
-buttons = document.querySelectorAll("btn-red"); //Devuelve un NodeList
+buttons = document.querySelectorAll("btn-red"); //Devuelve un NodeList que tiene disponible el forEach
+buttons.forEach(button => {
+
+    button.onClick = e => {
+        e.target.style.backgroundColor = "red";
+    }
+    
+});

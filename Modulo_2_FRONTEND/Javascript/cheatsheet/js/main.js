@@ -145,7 +145,7 @@ let person = {
         console.log(`Me llamo ${this.name}, tengo ${this.age} años y ${this.blonde ? 'soy rubio' : 'soy moreno.'} `);
     }
 }
-person.presentarse();
+person.presentarse();//Metodos de objetos
 
 //Acceso por punto / Dot notation
 console.log(person); //imprimir el objeto
@@ -178,10 +178,30 @@ const person2 = {
         //Con this estas haciendo referencia al objeto entero
         //Siempre que tengamos que hacer referencia al objeto en el que estamos
         //ponemos this
-        console.log(`Me llamo ${this.name}`);
-        
+        console.log(`Me llamo ${this.name}`);  
     }
 }
+
+//Object Construtor Using Functions
+function Car (brand,color, weight, topSpeed) {
+    this.brand = brand;
+    this.color = color;
+    this.weight = weight;
+    this.topSpeed = topSpeed;
+    this.getDescription = function () {
+        return `This ${this.color} ${this.brand} weight ${this.weight}` +
+        ` kilos and car reach up to ${this.topSpeed} kms/h`;
+    }
+}
+
+const car1 = new Car("Mercedes", "red", 2000, 200);
+const car2 = new Car("Volvo", "blanco", 2500, 280);
+const car3 = new Car("Volkswagen", "blue", 1500, 175);
+console.log(car1,car2,car3);
+
+console.log(car2.weight);
+console.log(car3.getDescription());
+console.log(car1 instanceof Car);
 
 console.clear();
 //---------------------ARRAYS---------------------------
