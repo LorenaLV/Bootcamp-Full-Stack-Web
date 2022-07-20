@@ -384,9 +384,80 @@ console.log(perimeteOfSquare(5));
 //console.log(typeof (() => {}));
 
 //Como transformar una func anónima en func flecha
-/*numbersArray.sort(function (a, b){return a - b});
+numbersArray.sort(function (a, b){return a - b});
 let arrows = (a, b) => a - b;
-numbersArray.sort(arrows);*/
+numbersArray.sort(arrows);
+
+//HIGH ORDER FUNCTIONS
+//Map
+let arr1 = [1,2,3];
+let arr2 = [];
+
+for(let num of arr1){
+    arr2.push(num * 2);
+}
+//console.log(arr1,arr2);
+
+arr1 = [1,2,3];
+arr2 = arr1.map(function (num) {
+    return num * 2;
+});
+arr2 = arr1.map(num => num % 2 === 0 ? num : num + 1);
+console.log("Resultado con Map: ", arr1,arr2);
+
+/*----------------------Ejercicio Map-----------------
+A partir de un array con años de nacimiento, calcular edades
+*/
+const birthYears = [1980, 1990, 1975, 1970];
+let ages = [];
+const yearActual = 2022;
+ages = birthYears.map(item => yearActual - item);
+console.log(birthYears , ages);
+
+//Filter
+const prices = [150, 50, 49, 51, 15, 237];
+const expensivesPrices = [];
+
+for (let price of prices) {
+    if (price >= 50) {
+        expensivesPrices.push(price);
+    }
+}
+
+console.log(expensivesPrices);
+
+let prices2 = [150, 50, 49, 51, 15, 237];
+let expensivesPrices2 = prices2.filter(price => price >= 50);
+console.log(expensivesPrices2);
+
+//EJERCICIO
+const cars = [
+    {
+        brand: "BMW",
+        year: 1990,
+        plateNumber: "HGJ1282"
+    },
+    {
+        brand: "BMW",
+        year: 1990,
+        plateNumber: "HGJ1282"
+    },
+    {
+        brand: "BMW",
+        year: 1990,
+        plateNumber: "HGJ1282"
+    },
+];
+
+
+
+
+
+
+
+
+
+
 
 console.clear();
 //---------------------BUCLES------------------------
