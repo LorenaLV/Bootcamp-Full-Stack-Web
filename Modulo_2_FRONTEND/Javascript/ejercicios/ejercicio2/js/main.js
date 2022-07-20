@@ -35,26 +35,49 @@ users.forEach(user =>{
     select.appendChild(options);
 })
 
-//iteramos sobre todas las key del objeto con el for..In
-for(const propertyName in users[0]){
-    const value = users[0][propertyName];
-    /*console.log(`key: ${key}, value: ${users[0][key]}`);
-    accedemos al primer objeto y si no sabemos el nombre de la propiedad
-    accedemos por []*/
-    if(typeof value !== "function"){
-        const newLi = document.createElement("li");
-        newLi.innerHTML = `<b>${propertyName} :</b> ${value}`;
-        newLi.classList.add("list-group-item");//Añadimos la clase de bootstrap
-        list.appendChild(newLi);
-    }     
+function fillList(user1) {
+    list.innerHTML= ""; //Se carga todo lo que tenia antes
+    //iteramos sobre todas las key del objeto con el for..In
+    for(const propertyName in user1){
+        const value = user1[propertyName];
+        /*console.log(`key: ${key}, value: ${users[0][key]}`);
+        accedemos al primer objeto y si no sabemos el nombre de la propiedad
+        accedemos por []*/
+        if(typeof value !== "function"){
+            const newLi = document.createElement("li");
+            newLi.innerHTML = `<b>${propertyName} :</b> ${value}`;
+            newLi.classList.add("list-group-item");//Añadimos la clase de bootstrap
+            list.appendChild(newLi);
+        }     
+    }
 }
 /*
 for (const key of Object.Key(users[0])){
 y ya se puede utilizar el of para el objeto en concreto
 }
 */
+//Estado inicial
+fillList(users[0]); //Esto es para que aparezca el primer usuario siempre y no salga vacia
+
+function processProduct(e) {
+    const selectUsers = users.find(user => user.name === select.value);  
+    if(e.target.id === "incrementButton"){
+        selectUsers.incrementProducts();
+    }else {
+        selectUsers.emptyProducts();
+    }
+    fillList(selectUsers);
+}
 
 //Añadir listeners necesarios
-select.addEventListener("change", changeUsers);
+select.addEventListener("change", e =>{
+    const selectUsers = users.find(user => user.name === select.value);  
+    /*find se le pasa una funcion nuestra, y lo unico que tiene
+    que devolver o él espera es true o false en función de la
+    condicion que le pongamos*/       
+    fillList(selectUsers);
+});
 
-func
+incrementButton.addEventListener("click",processProduct);
+emptyButton.addEventListener("click",processProduct);
+
