@@ -434,25 +434,42 @@ console.log(expensivesPrices2);
 const cars = [
     {
         brand: "BMW",
-        year: 1990,
-        plateNumber: "HGJ1282"
+        year: 2010,
+        plateNumber: "HGJ1282",
+        address: {
+            street:"lo que sea",
+            city: "wonderland"
+        }
     },
     {
-        brand: "BMW",
+        brand: "Mercedes",
         year: 1990,
-        plateNumber: "HGJ1282"
+        plateNumber: "BXK145",
+        address: {
+            street:"lo que sea",
+            city: "wonderland"
+        }
     },
     {
-        brand: "BMW",
-        year: 1990,
-        plateNumber: "HGJ1282"
+        brand: "Volvo",
+        year: 2022,
+        plateNumber: "KJU785",
+        address: {
+            street:"lo que sea",
+            city: "portugal"
+        }
     },
 ];
+//console.log(cars.filter(car => car.year > 2008));
+//console.log(cars.filter(car => car.address.city === "wonderland" && car.year > 2000));
 
+console.log(cars.map(car => car.brand));
+console.log(cars.map(car => car.address.street));
 
-
-
-
+//Sort
+console.log(cars);
+cars.sort((car1, car2) => car1.year - car2.year);
+console.log(cars);
 
 
 
