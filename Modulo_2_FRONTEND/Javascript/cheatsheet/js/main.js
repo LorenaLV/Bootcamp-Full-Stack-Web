@@ -182,6 +182,20 @@ const person2 = {
     }
 }
 
+//How to copy an object
+let obj1 = {property: 5};
+let obj2 = obj1;//NO es una copia. Es el mismo objeto con dos nombres
+
+obj2 = {...obj1}; //Copia superficial que usaremos prácticamente siempre.
+obj2 = JSON.parse(JSON.stringify(obj1)) //Copia profunda o total. Osea para niveles de objetos que tengas adentro mas objetos
+
+
+
+
+
+
+
+
 //Object Construtor Using Functions
 function Car (brand,color, weight, topSpeed) {
     this.brand = brand;
@@ -471,8 +485,13 @@ console.log(cars);
 cars.sort((car1, car2) => car1.year - car2.year);
 console.log(cars);
 
-
-
+//Reduce
+const arr = [10 ,7 ,13 ,20];
+console.log(arr.reduce((sum, currentNumber) => sum + currentNumber, 0));
+/*currentNumber cada elemento de la array y lo que se hace con reduce
+es la suma que inicialmente esta a 0 se le suma el valor actual 
+console.log(arr.reduce(myFunction,0)); REDUCE hay que pasarle una funcion y
+el valor inicial de la suma*/
 
 
 
