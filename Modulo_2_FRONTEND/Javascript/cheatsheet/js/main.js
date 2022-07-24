@@ -191,8 +191,9 @@ obj2 = JSON.parse(JSON.stringify(obj1)) //Copia profunda o total. Osea para nive
 
 
 
-
-
+//PARA ARRAYS
+let arrY = [1,2,3];
+let arrs = [0, ...arrY, 4];
 
 
 

@@ -83,8 +83,36 @@ let totalCost = employees.reduce((salarySum, empl) => salarySum + (empl.salario 
 
 /*APARTADO 8: Usar el método o métodos (reduce / map / filter 
 / sort) que determinemos oportuno e imprimir en cada apartado:
-• Despedir a los que tengan un rendimiento menor a 0.3.
-• Calcular el sueldo medio de la empresa.
-• Subir el sueldo de los que tengan un rendimiento superior a 0.7*/
+• Despedir a los que tengan un rendimiento menor a 0.3.*/
 let employeers = employees.filter(empl => empl.rendimiento >= 0.3);
 console.log("8.1: Despedir a los que tienen rendimiento 0.3: ",employeers);
+/*100 empleado no se pone porque antes hemos filtrado y 
+serían menos empleados  con .length te da todo lo que hay 
+en ese momento en employees*/
+
+
+
+
+//• Calcular el sueldo medio de la empresa.
+let salarybase = employees.reduce((salarySum, empl) => salarySum + empl.salario, 0) / employees.length;
+console.log("La media de la empresa es: ",salarybase);
+
+
+
+
+//Subir el sueldo de los que tengan un rendimiento superior a 0.7.
+// employees.map(empl =>{
+//     if(empl.rendimiento > 0.7){
+//         empl.salario = empl.salario * 1.25;
+//     }
+//     return empl;
+// });
+
+employees.forEach(empl => {
+    if(empl.rendimiento > 0.7){
+        empl.salario = empl.salario * 1.25;
+        console.log("Subir el sueldo de : ", empl.cargo);
+    }
+})
+
+console.log("Subir el sueldo de los que tenga rendimiento 0.7 ",employees);
