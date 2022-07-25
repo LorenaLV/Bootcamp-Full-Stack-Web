@@ -25,22 +25,27 @@
 
                 </tbody>
             </table>
-            <h1>Add a new Book</h1>
-            <form>
+            <h2>Add a new Book</h2>
+            <form class="mb-5">
                 <div class="form-group">
-                   <label for="formGroupExampleInput">Title</label>
-                  <input type="text" class="form-group" id="formGroupExampleInput" placeholder="Enter title">  
+                    <label for="titleInput">Title</label>
+                    <input type="text" class="form-control" id="titleInput">  
                 </div>
-                <div class="form-row">
-                    <div class="col-4">
-                       <label>Author</label> 
-                      <input type="text" class="form-control" placeholder="First name">
+                <div class="row">
+                    <div class="form-group col">
+                        <label for="authorInput">Author</label>
+                        <input type="text" class="form-control" id="authorInput">
                     </div>
-                    <div class="col-4">
-                        <label>Ventas</label> 
-                       <select></select>
-                     </div>
+                    <div class="form-group col">
+                        <label for="salesInput">Sales</label>
+                        <input type="number" class="form-control" id="salesInput">
+                    </div>
+                    <div class="form-group col">
+                        <label for="priceInput">Price</label>
+                        <input type="number" class="form-control" id="priceInput">
+                    </div>
                 </div>
+                <button type="submit" class="btn btn-primary" id="btnSave">Save</button>
             </form> 
         </div>
 
