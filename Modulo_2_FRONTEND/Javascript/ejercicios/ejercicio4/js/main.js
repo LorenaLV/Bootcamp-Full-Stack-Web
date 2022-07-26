@@ -62,9 +62,28 @@ updateTable();
 
 //Añadimos un evento al botón para añadir un nuevo libro
 btnSave.addEventListener("click", e =>{
-    e.preventDefault();
-    console.log(titleInput.value);
+    e.preventDefault(); /*preventDefault hace que todo el comportamiento 
+    que tuviera antes, eje: el submit recarga la página, hace que te lo quite*/
+    
+    const newID = booksArray[booksArray.length - 1].id + 1;
+ 
+    booksArray.push(
+        new Book( 
+            newID,
+            titleInput.value, 
+            authorInput.value,
+            salesInput.value, 
+            priceInput.value)
+    );  
+    updateTable(); //Llamo a la función para que se actualice la tabla
+
+    titleInput.value = ""; 
+    authorInput.value = "";
+    salesInput.value = ""; 
+    priceInput.value = "";
+
 });
+
 
 
 
