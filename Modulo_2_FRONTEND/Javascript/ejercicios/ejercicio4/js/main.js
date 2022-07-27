@@ -77,12 +77,18 @@ btnSave.addEventListener("click", e =>{
     );  
     updateTable(); //Llamo a la función para que se actualice la tabla
 
+    //Vacio todos los inputs para que se queden limpios
     titleInput.value = ""; 
     authorInput.value = "";
     salesInput.value = ""; 
     priceInput.value = "";
 
+    //btnSave.parentNode.reset();
+
 });
+
+//Ejercicio 5
+
 
 
 
@@ -91,7 +97,7 @@ btnSave.addEventListener("click", e =>{
 
 
 //Versión 2
-/*function updateTable() {
+/*function updateTableV2() {
     //Vaciamos el tbody por completo
     bookTbody.innerHTML = "";
     
@@ -121,4 +127,4 @@ btnSave.addEventListener("click", e =>{
         bookTbody.appendChild(tr);
     });   
 }
-updateTable();*/
+updateTableV2();*/
