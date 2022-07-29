@@ -71,21 +71,24 @@ updateTable();
 let filterInput = document.querySelector("#filterInput");
 
 
-/*si pongo displayedBooks = displayedBooks.filter al buscar en 
+/*si pongo displayedBooks = displayedBooks.filter(), al buscar en 
 el input te sale los que coincida en la tabla pero displayedBooks
-cambia y se sobre escribe y pierde todos los que no coincidieran con la
+cambia y se sobreescribe y pierde todos los que no coincidieran con la
 palabra que hayas puesto en el input. Si borras letras va a filtrar
 a partir de los que le quede porque ha sido modificado y no puede
-volver a la lista entera de la tabla . Por eso siempre se quiere partir
+volver a la lista entera de la tabla. Por eso siempre se quiere partir
 del completo(booksArray) y va cambiando todo el rato displayedBooks*/
 
 filterInput.addEventListener("input", e =>{
-    /*Version 1 teniendo en cuenta las Mayúsculas (case sensitive) */
+    /*Version 1 - Teniendo en cuenta las Mayúsculas (case sensitive) */
     displayedBooks = booksArray.filter(book => book.title.includes(e.target.value));
     
-    /*Version 2 teniendo en cuenta las minúsculas*/
+    /*Version 2 - Sin tener en cuenta las mayúsculas*/
     displayedBooks = booksArray.filter(book => {
-        return book.title.includes(e.target.value)
+        const upperTitle = book.title.toUpperCase(); //El titulo convertido a mayúscula
+        const upperInputValue = e.target.value.toUpperCase();
+        
+        return upperTitle.includes(upperInputValue);
     });
     
     updateTable();
