@@ -65,7 +65,7 @@ console.log(3);
 const POST_URL = "https://jsonplaceholder.typicode.com/posts";
 
 //Este objeto es el que vamos a enviar
-const body = {
+const newPost = {
     title: "mi título",
     body: "El cuerpo de publicación"
 }
@@ -76,7 +76,10 @@ const http = {
     headers: {
         /*como tiene un - se pone en string, también pasa con el 5 */
         "Content-type": "application/json"
-    }
+    },
+    /*Esta propiedad será la que se envie */
+    body: JSON.stringify(newPost)/*Esto convierte el objeto en json */
 };
 
-fetch(POST_URL, http);
+fetch(POST_URL, http)
+    .then(response => response.json()).then(data => console.log(data));
