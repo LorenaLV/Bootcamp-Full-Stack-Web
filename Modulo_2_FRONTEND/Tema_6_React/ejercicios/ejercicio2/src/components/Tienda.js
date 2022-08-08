@@ -21,7 +21,10 @@ export default function Tienda() {
 
   return (
     <div>
-      <Lista caterogia = "Electronica" productos = {tienda.electronica}/>
+     <Lista 
+      categoria = "Electronica" 
+     
+    />
     </div>
   )
 }

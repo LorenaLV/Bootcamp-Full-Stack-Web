@@ -2,7 +2,7 @@ export default function Lista(props) {
 
     return (
     <>
-      <h2>Hola</h2>  
+      <h2>{props.categoria}</h2>  
     </>
   )
 }
