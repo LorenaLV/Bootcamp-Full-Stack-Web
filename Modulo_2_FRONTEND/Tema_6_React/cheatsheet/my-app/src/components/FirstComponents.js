@@ -1,4 +1,5 @@
 import { Fragment } from "react";
+import PropType from "prop-types";
 
 export default function FirstComponents(props) {
   console.log(props, typeof props);
@@ -14,6 +15,21 @@ export default function FirstComponents(props) {
 }
 // export default FirstComponents; Alternativa
 // Solo se puede un export por archivo
+
+//Esto son para poner valores por defecto si no le pasamos ese props
+FirstComponents.defaultProps = {
+  title: "Sin titulo",
+  date: "Sin fecha",
+  producto: []
+}
+
+
+FirstComponents.propTypes = {
+  title: PropType.string.isRequired,
+  date: PropType.string,
+  producto:PropType.array
+}
+
 
 function SecondComponents() {
   return (
