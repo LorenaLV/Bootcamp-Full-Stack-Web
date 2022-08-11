@@ -2,14 +2,23 @@ import { Fragment } from "react";
 import PropType from "prop-types";
 
 export default function FirstComponents(props) {
-  console.log(props, typeof props);
-  console.log(props.title);
+  
+  //console.log(props, typeof props);
+  //console.log(props.title);
+  
+  //Eventos
+  const myFunction = function (bookID){
+    return function (event) {
+      console.log(bookID, event.target);
+    }
+  };
 
   return (
     <Fragment>
         <h3>{props.title}</h3>
         <small>{props.date ? props.date : "No hay fecha"}</small>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum cumque, velit beatae impedit blanditiis repellat nisi eum dolor fuga porro fugit facilis facere atque placeat sequi, nobis architecto animi ratione.</p>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+        <button onClick={myFunction(5)}>Click me!</button>
     </Fragment>
   )
 }
@@ -23,7 +32,7 @@ FirstComponents.defaultProps = {
   producto: []
 }
 
-
+//Para especificar los tipo de datos de los props
 FirstComponents.propTypes = {
   title: PropType.string.isRequired,
   date: PropType.string,
