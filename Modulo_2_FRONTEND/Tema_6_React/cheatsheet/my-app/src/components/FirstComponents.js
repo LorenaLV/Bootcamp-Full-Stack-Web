@@ -7,6 +7,12 @@ export default function FirstComponents(props) {
   //console.log(props.title);
   
   //Eventos
+  //La simple sin llamarla
+  const mySimpleFunction = function (event) {
+    console.log(event);
+  }
+  
+  //La compleja pasandole un parámetro
   const myFunction = function (bookID){
     return function (event) {
       console.log(bookID, event.target);
@@ -18,7 +24,9 @@ export default function FirstComponents(props) {
         <h3>{props.title}</h3>
         <small>{props.date ? props.date : "No hay fecha"}</small>
         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+        <button onClick={mySimpleFunction}>Click me!</button>
         <button onClick={myFunction(5)}>Click me!</button>
+        {/*<button onClick={() => event => console.log(1, event)}>Toda la gestion inline</button>*/}
     </Fragment>
   )
 }
